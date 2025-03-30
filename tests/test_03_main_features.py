@@ -28,7 +28,7 @@ class TestMainFeatures:
         main_page.open_main_page()
         main_page.click_order_feed()
 
-        assert main_page.is_current_url(UrlsSiteData.ORDER_FEED_URL)
+        assert main_page.is_current_url(UrlsSiteData.order_feed_url)
 
 
     @allure.title("3. Если кликнуть на ингредиент, появится всплывающее окно с деталями")
@@ -81,5 +81,5 @@ class TestMainFeatures:
         main_page.add_ingredient_to_order()
         main_page.click_login_button()
 
-        assert main_page.is_current_url(UrlsSiteData.LOGIN_URL)
+        assert main_page.is_current_url(UrlsSiteData.login_url)
         

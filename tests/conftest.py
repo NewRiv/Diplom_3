@@ -38,7 +38,7 @@ def driver(request):
 
 @pytest.fixture
 def login_to_profile(driver):
-    def login(email=TestUserData.TEST_EMAIL, password=TestUserData.TEST_PASSWORD):
+    def login(email=TestUserData.test_email, password=TestUserData.test_password):
         login_page = LoginPage(driver)
         login_page.open_login_page()
         login_page.enter_email(email)

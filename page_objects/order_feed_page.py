@@ -10,15 +10,15 @@ class OrderFeedPage(BasePage):
 
     @allure.step("Открыть страницу 'Лента заказов'")
     def open_order_feed_page(self):
-        self.open_url(UrlsSiteData.ORDER_FEED_URL)
+        self.open_url(UrlsSiteData.order_feed_url)
 
     @allure.step("Открыть модальное окно заказа")
     def open_order_modal(self):
-        self.click(OrderFeedPageLocators.FIRST_ORDER_BLOCK)
+        self.click(OrderFeedPageLocators.first_order_block)
 
     @allure.step("Проверка отображения модального окна заказа")
     def is_modal_order_displayed(self):
-        return self.is_element_displayed(OrderFeedPageLocators.MODAL_WINDOW_ORDER)
+        return self.is_element_displayed(OrderFeedPageLocators.modal_window_order)
 
     @allure.step("Поиск заказа в ленте по номеру")
     def find_order_in_feed(self, order_number):
@@ -26,21 +26,21 @@ class OrderFeedPage(BasePage):
         order_number_with_prefix = f"#{order_number.lstrip('#')}"
 
         # Убедимся, что список заказов виден
-        self.wait_until_visible(OrderFeedPageLocators.ORDER_FEED_LIST)
+        self.wait_until_visible(OrderFeedPageLocators.order_feed_list)
 
         # Используем уже методы "is_text_in_elements" в BasePage для проверки текста в элементах
-        return self.is_text_in_elements(OrderFeedPageLocators.ORDER_FEED_LIST, order_number_with_prefix)
+        return self.is_text_in_elements(OrderFeedPageLocators.order_feed_list, order_number_with_prefix)
 
     @allure.step("Проверка, что заказ в разделе 'В работе'")
 
     @allure.step("Получение количества выполненных заказов за всё время")
     def get_completed_total_orders_count(self):
-        completed_count_text = self.get_text(OrderFeedPageLocators.ORDER_COMPLETED_TOTAL)
+        completed_count_text = self.get_text(OrderFeedPageLocators.order_completed_total)
         return int(completed_count_text)
 
     @allure.step("Получение количества выполненных заказов за сегодня")
     def get_completed_today_orders_count(self):
-        completed_count_text = self.get_text(OrderFeedPageLocators.ORDER_COMPLETED_TODAY)
+        completed_count_text = self.get_text(OrderFeedPageLocators.order_completed_today)
         return int(completed_count_text)
 
     @allure.step("Проверка наличия заказа в разделе 'В работе'")
@@ -50,7 +50,7 @@ class OrderFeedPage(BasePage):
     @allure.step("Проверка, что заказ в разделе 'В работе'")
     def is_order_in_progress(self, order_number):
         # Извлекаем все заказы в разделе "В работе"
-        orders_in_progress_elements = self.find_elements(OrderFeedPageLocators.ORDERS_IN_PROGRESS)
+        orders_in_progress_elements = self.find_elements(OrderFeedPageLocators.orders_in_progress)
         orders_in_progress = [element.text.lstrip("0") for element in
                               orders_in_progress_elements]  # Убираем ведущие нули
 

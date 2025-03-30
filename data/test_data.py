@@ -1,3 +1,3 @@
 class TestUserData:
-    TEST_EMAIL = "Tatiana_Alieva_13_777@yandex.ru"
-    TEST_PASSWORD = "vlad08"
+    test_email = "Tatiana_Alieva_13_777@yandex.ru"
+    test_password = "vlad08"

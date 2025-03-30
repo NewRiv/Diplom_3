@@ -9,40 +9,40 @@ class LoginPage (BasePage):
 
     @allure.step("Открыть страницу авторизации")
     def open_login_page(self):
-        self.open_url(UrlsSiteData.LOGIN_URL)
+        self.open_url(UrlsSiteData.login_url)
 
     @allure.step("Открытие страницы восстановления пароля")
     def open_restore_password_page(self):
-        self.open_url(UrlsSiteData.RESET_PASSWORD_URL)
+        self.open_url(UrlsSiteData.reset_password_url)
 
     @allure.step("Ожидание загрузки страницы восстановления пароля")
     def wait_restore_password_page(self):
-        self.wait_for_url(UrlsSiteData.RESET_PASSWORD_URL)
+        self.wait_for_url(UrlsSiteData.reset_password_url)
 
     @allure.step("Клик по кнопке восстановления пароля")
     def click_restore_password_button(self):
-        self.click(LoginPageLocators.RESTORE_PASSWORD_BUTTON)
+        self.click(LoginPageLocators.restore_password_button)
 
     @allure.step("Ввод email")
     def enter_email(self, email):
-        self.enter_text(LoginPageLocators.EMAIL_INPUT, email)
+        self.enter_text(LoginPageLocators.email_input, email)
 
     @allure.step("Ввод пароля")
     def enter_password(self, password):
-        self.enter_text(LoginPageLocators.PASSWORD_INPUT, password)
+        self.enter_text(LoginPageLocators.password_input, password)
 
     @allure.step("Клик по кнопке 'Войти'")
     def click_login_button(self):
-        self.click(LoginPageLocators.LOGIN_BUTTON)
+        self.click(LoginPageLocators.login_button)
 
     @allure.step("Клик по кнопке 'Восстановить'")
     def click_restore_button(self):
-        self.click(LoginPageLocators.RESTORE_BUTTON)
+        self.click(LoginPageLocators.restore_button)
 
     @allure.step("Клик по кнопке показа/скрытия пароля")
     def click_toggle_password_visibility(self):
-        self.click(LoginPageLocators.TOGGLE_PASSWORD_VISIBILITY)
+        self.click(LoginPageLocators.toggle_password_visibility)
 
     @allure.step("Проверка активации поля пароля")
     def is_password_field_active(self):
-        return self.is_element_active(LoginPageLocators.PASSWORD_FIELD)
+        return self.is_element_active(LoginPageLocators.password_field)
